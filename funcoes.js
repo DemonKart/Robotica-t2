@@ -16,7 +16,7 @@ var baixo=(PhMax/2);
 
 cx+(PwMax/2)
 context.lineWidth = 3;
-context.strokeStyle = 'blue';
+context.strokeStyle = 'black';
 context.cap = 'round'
 var linhas = new Array();
 var origem = new Array();
@@ -27,7 +27,7 @@ ind=-1;
 function novaLinha(X1,Y1,X2,Y2){
 	var nova=linhas.length;
 	linhas[nova]={
-		edit:-1, //0: NÃ£o editÃ¡vel | 1: ponto inicial | 2: ponto final | 3: meio da reta
+		edit:-1, //0: Nao editvel | 1: ponto inicial | 2: ponto final | 3: meio da reta
 		x1:X1,
 		y1:Y1,
 		x2:X2,
@@ -38,6 +38,29 @@ function novaLinha(X1,Y1,X2,Y2){
 		oY1:0,
 		oX2:0,
 		oY2:0
+	}
+}
+
+function drawLines () {
+	// console.log(splinePoints.length);
+	for (var i=1;i<splinePoints.length;i++){
+		p1=splinePoints[i-1];
+		p2=splinePoints[i];
+		// console.log(p2);
+		context.beginPath();
+		//Linha1
+		context.moveTo(p1.x, p1.y);
+		context.lineTo(p2.x, p2.y);
+		context.stroke();
+		context.closePath();
+	}
+	for (var i=0;i<points.length;i++){
+		p=points[i];
+		context.beginPath();
+		context.arc(p.x,p.y,5,0,2*Math.PI)
+		context.stroke();
+		context.fill();
+		context.closePath();
 	}
 }
 
@@ -74,7 +97,7 @@ function novoPoligono () {
 	}
 	achaVertices(n);
 }
-novoPoligono();
+// novoPoligono();
 
 function inLine(reta,Px,Py){
 	var x1=reta.x1;
@@ -198,6 +221,7 @@ function MouseMove(evt){
 function Atualizar() {
 	context.clearRect(0, 0, WIDTH, HEIGHT);
 	// Desenhar();
+	drawLines();
 	Desenhar();
 }
 
@@ -207,5 +231,7 @@ window.addEventListener('mousemove', function (evt){document.getElementById('tes
 
 
 window.onload = function () {
-	setInterval(Atualizar, 10);
+	// drawLines();
+	setInterval(Atualizar, 100);
 }
+
