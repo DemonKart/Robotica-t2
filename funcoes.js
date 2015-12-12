@@ -22,6 +22,20 @@ ind=-1;
 var img = new Image();
 img.src='car.png';
 
+function drawMap() {
+	for (var i=1;i<mapPoints.length;i=i+2){
+		p1=mapPoints[i-1];
+		p2=mapPoints[i];
+		context.beginPath();
+		context.moveTo(p1.x, p1.y);
+		context.lineTo(p2.x, p2.y);
+		console.log(p2.t+" | "+tempo);
+		context.strokeStyle = 'black';
+		context.stroke();
+		context.closePath();
+	}
+}
+
 function drawSplines (tempo) {
 	for (var i=1;i<points.length;i++){
 		p1=points[i-1];
@@ -63,6 +77,7 @@ function drawAnimation(tempo) {
 	context.clearRect(0, 0, WIDTH, HEIGHT);
 	var p= points[tempo];
 	var TO_RADIANS = Math.PI/180;
+	drawMap();
 	drawSplines(p.t);
 	// rotate 45º image "imgSprite", based on its rotation axis located at x=20,y=30 and draw it on context "ctx" of the canvas on coordinates x=200,y=100
 	rotateAndPaintImage ( context, img, p.a*TO_RADIANS, p.x, p.y, 46, 22 );
