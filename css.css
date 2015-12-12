@@ -1,0 +1,21 @@
+.block{
+    width: 32px;
+    height: 16px;
+    position: relative;
+    display: inline-block;
+    background: #2ecc71;
+    overflow: visible;
+}
+.title{
+    width: 250px;
+    height: 32px;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+}
+.arrow{
+    background:none;
+    transform-origin: 0% 100%;
+    margin-left:20px;
+}
