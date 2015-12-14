@@ -15,10 +15,10 @@ context.strokeStyle = 'black';
 context.cap = 'round';
 
 var img = new Image();
-img.src='car.png';
+img.src='images/car.png';
 
 /* Velocidade das rodas */
-var lstang=-1;
+var lstang=-1; /* Valor inicial */
 var radius=1; /* Raio das rodas */
 
 function getAngSpeed(vel) { /* Retorna velocidade angular */
@@ -154,5 +154,5 @@ function Atualizar() {
 }
 
 window.onload = function () {
-	setInterval(function(){ Atualizar();},250);
+	setInterval(function(){ Atualizar();},500);
 }
