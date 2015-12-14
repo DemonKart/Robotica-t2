@@ -7,8 +7,9 @@
     overflow: visible;
 }
 .title{
-    width: 250px;
+    width: 400px;
     height: 32px;
+    font-size:25px;
     position: relative;
     display: inline-block;
     margin: 0;
@@ -16,6 +17,10 @@
 }
 .arrow{
     background:none;
+    position:relative;
     transform-origin: 0% 100%;
     margin-left:20px;
+}
+#infos{
+    display:inline-block;font-size:25px
 }
